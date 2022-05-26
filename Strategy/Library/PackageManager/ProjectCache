@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637891384479848492
+      ticks: 637891397285964279
     m_Hash: 3495392058
   m_LockFileStatus:
     m_FilePath: E:/Projects/Strategy/Strategy/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637891384497348099
+      ticks: 637891397315874983
     m_Hash: 894664828
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}

@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637891397285964279
-    m_Hash: 3495392058
+      ticks: 637896933068071418
+    m_Hash: 659951101
   m_LockFileStatus:
     m_FilePath: E:/Projects/Strategy/Strategy/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637891397315874983
-    m_Hash: 894664828
+      ticks: 637896933068081387
+    m_Hash: 1413613287
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -2867,6 +2867,7 @@ m_PackageAssets:
         - 1.3.1
         - 1.3.2
         - 1.4.0
+        - 1.4.1
         compatible:
         - 1.0.1
         - 1.1.0-pre.7
@@ -2880,6 +2881,7 @@ m_PackageAssets:
         - 1.3.1
         - 1.3.2
         - 1.4.0
+        - 1.4.1
         verified: 1.0.1
       dependencies:
       - name: com.unity.modules.unitywebrequest

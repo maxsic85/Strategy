@@ -1524,6 +1524,7 @@ GameObject:
   - component: {fileID: 497098980}
   - component: {fileID: 497098979}
   - component: {fileID: 497098978}
+  - component: {fileID: 497098981}
   m_Layer: 0
   m_Name: MouseInteractionPresenter
   m_TagString: Untagged
@@ -1578,6 +1579,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &497098981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497098977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d432dded0bf7c48b5f9bbe87c56644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selectable: {fileID: 11400000, guid: 67efa5143a3987042ba88bf57aa29c68, type: 2}
 --- !u!1 &550767485
 GameObject:
   m_ObjectHideFlags: 0

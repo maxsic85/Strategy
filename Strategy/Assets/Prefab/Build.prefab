@@ -239,10 +239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e01563d37a23f4e9bae517fb3e14dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitPrefab: {fileID: 0}
   _unitsParent: {fileID: 0}
   _maxHealth: 1000
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: d310f6bc07533014d9beda6cdda4901c, type: 3}
 --- !u!23 &1951441362383660934
 MeshRenderer:
   m_ObjectHideFlags: 0

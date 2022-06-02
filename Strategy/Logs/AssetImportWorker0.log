@@ -392,3 +392,27 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 379.385082 seconds.
+  path: Assets/Scripts/Core/Core.asmdef
+  artifactKey: Guid(c99fbfd7ae2dc284b96f493883a9a4c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Core/Core.asmdef using Guid(c99fbfd7ae2dc284b96f493883a9a4c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc0ed6e5f2fc4e9c4cba41ffa14bbf03') in 0.010777 seconds 
+  Import took 0.014633 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 44.794437 seconds.
+  path: Assets/Scripts/Core/MainBuilding.cs
+  artifactKey: Guid(14e01563d37a23f4e9bae517fb3e14dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Core/MainBuilding.cs using Guid(14e01563d37a23f4e9bae517fb3e14dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be0f717193b2931b30689a2dd6bcf53c') in 0.009099 seconds 
+  Import took 0.012667 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 209.491837 seconds.
+  path: Assets/Scripts/Core/MainBuilding.cs
+  artifactKey: Guid(14e01563d37a23f4e9bae517fb3e14dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Core/MainBuilding.cs using Guid(14e01563d37a23f4e9bae517fb3e14dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70c6eec45acd70d4ec367b93507761a3') in 0.012008 seconds 
+  Import took 0.022736 seconds .
+

@@ -8,6 +8,7 @@ public class CommandButtonsPresenter : MonoBehaviour
 {
     [SerializeField] private SelectableValue _selectable;
     [SerializeField] private CommandButtonsView _view;
+    [SerializeField] private AssetsContext _context;
     private ISelectable _currentSelectable;
     private void Start()
     {
@@ -37,7 +38,7 @@ public class CommandButtonsPresenter : MonoBehaviour
         CommandExecutorBase<IProduceUnitCommand>;
         if (unitProducer != null)
         {
-        //    unitProducer.ExecuteSpecificCommand(new ProduceUnitCommand());
+            unitProducer.ExecuteSpecificCommand(_context.Inject(new ProduceUnitCommand()));
             return;
         }
         throw new   ApplicationException($"{nameof(CommandButtonsPresenter)}.{nameof(onButtonClick)}: Unknown type of commands executor: { commandExecutor.GetType().FullName }!");

@@ -1742,6 +1742,7 @@ GameObject:
   - component: {fileID: 471695386}
   - component: {fileID: 471695388}
   - component: {fileID: 471695387}
+  - component: {fileID: 471695389}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -1807,6 +1808,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471695385}
   m_CullTransparentMesh: 1
+--- !u!114 &471695389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471695385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0712890762278de49a34549d22469927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selectable: {fileID: 11400000, guid: 67efa5143a3987042ba88bf57aa29c68, type: 2}
+  _view: {fileID: 2111131980}
 --- !u!1001 &473140700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5468,7 +5483,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Attact
+  m_Text: ProduceUnit
 --- !u!222 &1962929998
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5490,8 +5505,9 @@ GameObject:
   - component: {fileID: 2111131977}
   - component: {fileID: 2111131976}
   - component: {fileID: 2111131979}
+  - component: {fileID: 2111131980}
   m_Layer: 5
-  m_Name: Grid
+  m_Name: GridButtonsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5599,6 +5615,23 @@ MonoBehaviour:
   m_EffectColor: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &2111131980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111131974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b895016da6231e74cade1f7c98a8af78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackButton: {fileID: 1837832461}
+  _moveButton: {fileID: 21244969}
+  _patrolButton: {fileID: 1430064129}
+  _stopButton: {fileID: 1170988173}
+  _produceUnitButton: {fileID: 1272229496}
 --- !u!4 &2113437573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4223103202142604724, guid: 11df68f47071b3640a8c650ea0df8913, type: 3}

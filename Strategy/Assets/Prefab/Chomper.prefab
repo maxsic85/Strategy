@@ -169,6 +169,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1925493210068994215}
   - component: {fileID: 1925493210059122501}
+  - component: {fileID: 7131332375978991837}
+  - component: {fileID: 6938580376115345235}
   m_Layer: 0
   m_Name: Chomper
   m_TagString: Untagged
@@ -211,6 +213,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &7131332375978991837
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925493210068636807}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &6938580376115345235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925493210068636807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2205671c497c79a40b8c86f800f77566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitsParent: {fileID: 0}
+  _maxHealth: 1000
+  _icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &1925493210068636809
 GameObject:
   m_ObjectHideFlags: 0

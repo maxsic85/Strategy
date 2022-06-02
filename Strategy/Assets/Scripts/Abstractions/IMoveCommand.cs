@@ -1,2 +1,6 @@
-﻿public interface IMoveCommand : ICommand
-{ }
+﻿using UnityEngine;
+
+public interface IMoveCommand : ICommand
+{
+   
+}

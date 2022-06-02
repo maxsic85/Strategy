@@ -34,13 +34,39 @@ public class CommandButtonsPresenter : MonoBehaviour
     }
     private void onButtonClick(ICommandExecutor commandExecutor)
     {
-        var unitProducer = commandExecutor as
-        CommandExecutorBase<IProduceUnitCommand>;
-        if (unitProducer != null)
+
+        if (commandExecutor is null)
         {
-            unitProducer.ExecuteSpecificCommand(_context.Inject(new ProduceUnitCommand()));
+            throw new ApplicationException($"{nameof(CommandButtonsPresenter)}.{nameof(onButtonClick)}: Unknown type of commands executor: { commandExecutor.GetType().FullName }!");
+        }
+        if (commandExecutor is CommandExecutorBase<IMoveCommand> moveExecuter)
+        {
+            LetsMove(moveExecuter);
+            return;
+
+        }
+        if (commandExecutor is CommandExecutorBase<IProduceUnitCommand> produseExecuter)
+        {
+            LetsProduse(produseExecuter);
             return;
         }
-        throw new   ApplicationException($"{nameof(CommandButtonsPresenter)}.{nameof(onButtonClick)}: Unknown type of commands executor: { commandExecutor.GetType().FullName }!");
+
+        void LetsMove(CommandExecutorBase<IMoveCommand> commandExecutor)
+        {
+            if (commandExecutor != null)
+            {
+                commandExecutor.ExecuteSpecificCommand(_context.Inject(new MoveCommand()));
+                return;
+            }
+        }
+
+        void LetsProduse(CommandExecutorBase<IProduceUnitCommand> commandExecutor)
+        {
+            if (commandExecutor != null)
+            {
+                commandExecutor.ExecuteSpecificCommand(_context.Inject(new ProduceUnitCommand()));
+                return;
+            }
+        }
     }
 }

@@ -21,6 +21,5 @@ namespace Core
             Debug.Log($"Moving {gameObject.name}");
         }
 
-
     }
 }

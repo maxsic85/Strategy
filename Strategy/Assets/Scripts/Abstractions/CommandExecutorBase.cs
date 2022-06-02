@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public abstract class CommandExecutorBase<T> : MonoBehaviour, ICommandExecutor where T : ICommand
 {
@@ -8,4 +9,9 @@ public abstract class CommandExecutorBase<T> : MonoBehaviour, ICommandExecutor w
     }
 
     public abstract void ExecuteSpecificCommand(T command);
+
+    public static implicit operator CommandExecutorBase<T>(CommandExecutorBase<IMoveCommand> v)
+    {
+        throw new NotImplementedException();
+    }
 }

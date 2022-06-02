@@ -37,7 +37,7 @@ public class CommandButtonsPresenter : MonoBehaviour
         CommandExecutorBase<IProduceUnitCommand>;
         if (unitProducer != null)
         {
-            unitProducer.ExecuteSpecificCommand(new ProduceUnitCommand());
+        //    unitProducer.ExecuteSpecificCommand(new ProduceUnitCommand());
             return;
         }
         throw new   ApplicationException($"{nameof(CommandButtonsPresenter)}.{nameof(onButtonClick)}: Unknown type of commands executor: { commandExecutor.GetType().FullName }!");

@@ -1924,6 +1924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 963194227}
   _selectedObject: {fileID: 11400000, guid: 67efa5143a3987042ba88bf57aa29c68, type: 2}
+  _eventSystem: {fileID: 975065888}
 --- !u!95 &497098979
 Animator:
   serializedVersion: 3

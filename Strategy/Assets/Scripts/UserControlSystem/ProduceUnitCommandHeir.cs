@@ -1,3 +1,3 @@
-﻿public class ProduceUnitCommandHeir : ProduceUnitCommand
+﻿public sealed class ProduceUnitCommandHeir : ProduceUnitCommand
 {
 }

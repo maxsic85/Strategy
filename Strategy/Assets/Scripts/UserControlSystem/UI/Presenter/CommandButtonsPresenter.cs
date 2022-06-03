@@ -80,6 +80,9 @@ public class CommandButtonsPresenter : MonoBehaviour
         {
             if (commandExecutor != null)
             {
+                //  IProduceUnitCommand  a= (IProduceUnitCommand)new ProduceUnitCommandHeir().GetType().BaseType.GetInterface(nameof(IProduceUnitCommand));
+                //  var  a=new ProduceUnitCommandHeir().GetType().BaseType;
+
                 commandExecutor.ExecuteSpecificCommand(_context.Inject(new ProduceUnitCommandHeir()));
                 return;
             }

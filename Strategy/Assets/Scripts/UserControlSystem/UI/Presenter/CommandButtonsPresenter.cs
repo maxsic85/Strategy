@@ -80,7 +80,7 @@ public class CommandButtonsPresenter : MonoBehaviour
         {
             if (commandExecutor != null)
             {
-                commandExecutor.ExecuteSpecificCommand(_context.Inject(new ProduceUnitCommand()));
+                commandExecutor.ExecuteSpecificCommand(_context.Inject(new ProduceUnitCommandHeir()));
                 return;
             }
         }

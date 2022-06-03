@@ -10,7 +10,7 @@ public abstract class CommandExecutorBase<T> : MonoBehaviour, ICommandExecutor w
 
     public abstract void ExecuteSpecificCommand(T command);
 
-    public static implicit operator CommandExecutorBase<T>(CommandExecutorBase<IMoveCommand> v)
+    public static implicit operator CommandExecutorBase<T>(CommandExecutorBase<ICommand> v)
     {
         throw new NotImplementedException();
     }

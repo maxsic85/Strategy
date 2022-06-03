@@ -50,6 +50,22 @@ public class CommandButtonsPresenter : MonoBehaviour
             LetsProduse(produseExecuter);
             return;
         }
+        if (commandExecutor is CommandExecutorBase<IAttackCommand> atasckExecuter)
+        {
+            LetsAttack(atasckExecuter);
+            return;
+        }
+        if (commandExecutor is CommandExecutorBase<IPatrolCommand> patrolExecurter)
+        {
+            LetsPatrol(patrolExecurter);
+            return;
+        }
+        if (commandExecutor is CommandExecutorBase<IStopCommand> stopExecurter)
+        {
+            LetsStop(stopExecurter);
+            return;
+        }
+
 
         void LetsMove(CommandExecutorBase<IMoveCommand> commandExecutor)
         {
@@ -65,6 +81,32 @@ public class CommandButtonsPresenter : MonoBehaviour
             if (commandExecutor != null)
             {
                 commandExecutor.ExecuteSpecificCommand(_context.Inject(new ProduceUnitCommand()));
+                return;
+            }
+        }
+
+        void LetsAttack(CommandExecutorBase<IAttackCommand> commandExecutor)
+        {
+            if (commandExecutor != null)
+            {
+                commandExecutor.ExecuteSpecificCommand(_context.Inject(new AttackCommand()));
+                return;
+            }
+        }
+        void LetsPatrol(CommandExecutorBase<IPatrolCommand> commandExecutor)
+        {
+            if (commandExecutor != null)
+            {
+                commandExecutor.ExecuteSpecificCommand(_context.Inject(new PatrolCommand()));
+                return;
+            }
+        }
+
+        void LetsStop(CommandExecutorBase<IStopCommand> commandExecutor)
+        {
+            if (commandExecutor != null)
+            {
+                commandExecutor.ExecuteSpecificCommand(_context.Inject(new StopCommand()));
                 return;
             }
         }

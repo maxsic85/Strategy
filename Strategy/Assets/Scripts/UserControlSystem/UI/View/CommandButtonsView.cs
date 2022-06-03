@@ -37,11 +37,20 @@ public class CommandButtonsView : MonoBehaviour
             .Key
             .IsAssignableFrom(currentExecutor.GetType())
             )
-            .First()
+            .FirstOrDefault()
             .Value;
+            if (buttonGameObject != null)
+            {
             buttonGameObject.SetActive(true);
             var button = buttonGameObject.GetComponent<Button>();
             button.onClick.AddListener(() => OnClick?.Invoke(currentExecutor));
+           
+            }
+            else
+            {
+               print( _buttonsByExecutorType.FirstOrDefault().Value);
+            }
+               
         }
     }
     public void Clear()

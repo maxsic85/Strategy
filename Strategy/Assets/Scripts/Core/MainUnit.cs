@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Core
 {
-    public sealed class MainUnit : CommandExecutorBase<IMoveCommand>, ISelectable
+    public class MainUnit : CommandExecutorBase<IMoveCommand>, ISelectable
     {
         public float Health => _health;
         public float MaxHealth => _maxHealth;
@@ -20,6 +20,5 @@ namespace Core
         {
             Debug.Log($"Moving {gameObject.name}");
         }
-
     }
 }

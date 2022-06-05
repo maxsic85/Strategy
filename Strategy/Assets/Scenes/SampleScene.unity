@@ -1108,12 +1108,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd4241cdab9471dbb144f28dc2e3b33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectedImage: {fileID: 369704176}
-  _healthSlider: {fileID: 469965887}
-  _text: {fileID: 174936482}
-  _sliderBackground: {fileID: 1881506891}
-  _sliderFillImage: {fileID: 245419165}
-  _selectedValue: {fileID: 11400000, guid: 67efa5143a3987042ba88bf57aa29c68, type: 2}
+  _selectedImage: {fileID: 0}
+  _healthSlider: {fileID: 0}
+  _text: {fileID: 0}
+  _sliderBackground: {fileID: 0}
+  _sliderFillImage: {fileID: 0}
+  _selectedValue: {fileID: 0}
 --- !u!114 &346222632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1902,8 +1902,8 @@ GameObject:
   m_Component:
   - component: {fileID: 497098980}
   - component: {fileID: 497098979}
-  - component: {fileID: 497098978}
   - component: {fileID: 497098981}
+  - component: {fileID: 497098978}
   m_Layer: 0
   m_Name: MouseInteractionPresenter
   m_TagString: Untagged

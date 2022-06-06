@@ -241,7 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitsParent: {fileID: 0}
   _maxHealth: 1000
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: d310f6bc07533014d9beda6cdda4901c, type: 3}
 --- !u!23 &1951441362383660934
 MeshRenderer:
   m_ObjectHideFlags: 0

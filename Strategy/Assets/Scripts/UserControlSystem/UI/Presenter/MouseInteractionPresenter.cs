@@ -11,6 +11,8 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
     [SerializeField] private EventSystem _eventSystem;
 
     [SerializeField] private Vector3Value _groundClicksRMB;
+    [SerializeField] private AtackValue _attackable;
+
     [SerializeField] private Transform _groundTransform;
 
     private Plane _groundPlane;

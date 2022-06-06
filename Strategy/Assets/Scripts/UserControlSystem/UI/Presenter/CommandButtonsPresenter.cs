@@ -21,7 +21,7 @@ public class CommandButtonsPresenter : MonoBehaviour
         _buttonModel.OnCommandAccepted += _view.BlockInteractions;
 
 
-        _selectable.OnSelected += onSelected;
+        _selectable.OnNewValue += onSelected;
         onSelected(_selectable.CurrentValue);
     }
     private void onSelected(ISelectable selectable)

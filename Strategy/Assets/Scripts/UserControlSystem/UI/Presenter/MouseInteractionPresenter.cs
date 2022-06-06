@@ -48,8 +48,7 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
         {
             if (_groundPlane.Raycast(ray, out var enter))
             {
-                _groundClicksRMB.SetValue(ray.origin + ray.direction
-                * enter);
+                _groundClicksRMB.SetValue(ray.origin + ray.direction* enter);
             }
         }
     }

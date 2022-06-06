@@ -8,7 +8,7 @@ public class MovingCommandCommandCreator : CommandCreatorBase<IMoveCommand>
     private Action<IMoveCommand> _creationCallback;
 
     [Inject]
-    private void Init(Vector3Value groundClicks)
+    private void Init(RootScriptableValue<Vector3> groundClicks)
     {
         groundClicks.OnNewValue += onNewValue;
     }

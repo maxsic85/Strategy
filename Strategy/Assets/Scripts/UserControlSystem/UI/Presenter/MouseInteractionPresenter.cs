@@ -39,29 +39,37 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
             {
                 return;
             }
-            var selectable = hits
-            .Select(hit =>
-            hit.collider.GetComponentInParent<ISelectable>())
-            .Where(c => c != null)
-            .FirstOrDefault();
-            _selectedObject.SetValue(selectable);
+            GetClickSelectedObject(hits);
         }
         else
         {
-            if (_groundPlane.Raycast(ray, out var enter))
-            {
-                _groundClicksRMB.SetValue(ray.origin + ray.direction * enter);
-            }
-            foreach (var item in hits)
-            {
-                if (item.collider.GetComponentInParent<IAttackable>() != null)
-                {
-                    _attackable.SetValue(item.collider.GetComponentInParent<IAttackable>());
+            GetGroundClickPosition(ray);
 
-                }
-            }
-
+            GetAttacableClickUnit(hits);
         }
     }
 
+    private void GetClickSelectedObject(RaycastHit[] hits)
+    {
+        var selectable = hits
+        .Select(hit =>
+        hit.collider.GetComponentInParent<ISelectable>())
+        .Where(c => c != null)
+        .FirstOrDefault();
+        _selectedObject.SetValue(selectable);
+    }
+    private void GetAttacableClickUnit(RaycastHit[] hits)
+    {
+        foreach (var item in hits.Where(item => item.collider.GetComponentInParent<IAttackable>() != null))
+        {
+            _attackable.SetValue(item.collider.GetComponentInParent<IAttackable>());
+        }
+    }
+    private void GetGroundClickPosition(Ray ray)
+    {
+        if (_groundPlane.Raycast(ray, out var enter))
+        {
+            _groundClicksRMB.SetValue(ray.origin + ray.direction * enter);
+        }
+    }
 }

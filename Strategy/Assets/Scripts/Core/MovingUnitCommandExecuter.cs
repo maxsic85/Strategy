@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MovingUnit : CommandExecutorBase<IMoveCommand>
+public class MovingUnitCommandExecuter : CommandExecutorBase<IMoveCommand>
 {
     public override void ExecuteSpecificCommand(IMoveCommand command)
     {

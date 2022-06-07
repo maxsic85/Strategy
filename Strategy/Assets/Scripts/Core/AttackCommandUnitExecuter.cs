@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BattleUnit : CommandExecutorBase<IAttackCommand>
+public class AttackCommandUnitExecuter : CommandExecutorBase<IAttackCommand>
 {
     public override void ExecuteSpecificCommand(IAttackCommand command)
     {

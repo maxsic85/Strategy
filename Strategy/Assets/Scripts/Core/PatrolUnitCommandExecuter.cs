@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PatrolUnit : CommandExecutorBase<IPatrolCommand>
+public class PatrolUnitCommandExecuter : CommandExecutorBase<IPatrolCommand>
 {
     public override void ExecuteSpecificCommand(IPatrolCommand command)
     {

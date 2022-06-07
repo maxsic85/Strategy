@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class StoplUnitCommandExecuter : CommandExecutorBase<IStopCommand>
+public class StopUnitCommandExecuter : CommandExecutorBase<IStopCommand>
 {
     public override void ExecuteSpecificCommand(IStopCommand command)
     {

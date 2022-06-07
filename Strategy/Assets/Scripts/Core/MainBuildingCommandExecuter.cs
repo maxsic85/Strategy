@@ -9,6 +9,8 @@ namespace Core
         public float MaxHealth => _maxHealth;
         public Sprite Icon => _icon;
 
+        public Vector3 CurrenntPosition => gameObject.transform.position;
+
         [SerializeField] private Transform _unitsParent;
 
         [SerializeField] private float _maxHealth = 1000;

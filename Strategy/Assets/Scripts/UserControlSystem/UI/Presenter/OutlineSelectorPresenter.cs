@@ -1,6 +1,7 @@
 using Abstractions;
 using UnityEngine;
 using UserControlSystem;
+using Zenject;
 
 public class OutlineSelectorPresenter : MonoBehaviour
 {

@@ -3,6 +3,7 @@ using Abstractions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UserControlSystem;
+using Zenject;
 
 public sealed class MouseInteractionPresenter : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
             {
                 return;
             }
-            GetClickSelectedObject(hits);
+            GetleftClickSelectedObject(hits);
         }
         else
         {
@@ -49,7 +50,7 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
         }
     }
 
-    private void GetClickSelectedObject(RaycastHit[] hits)
+    private void GetleftClickSelectedObject(RaycastHit[] hits)
     {
         var selectable = hits
         .Select(hit =>

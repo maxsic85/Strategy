@@ -1,3 +1,4 @@
+using Abstractions;
 using UnityEngine;
 using Zenject;
 public class UiModelInstaller : MonoInstaller
@@ -5,6 +6,8 @@ public class UiModelInstaller : MonoInstaller
     [SerializeField] private AssetsContext _legacyContext;
     [SerializeField] private RootScriptableValue<Vector3> _vector3Value;
     [SerializeField] private RootScriptableValue<IAttackable> _atackable;
+    [SerializeField] private RootScriptableValue<ISelectable> _selectable;
+
 
 
     public override void InstallBindings()
@@ -12,7 +15,7 @@ public class UiModelInstaller : MonoInstaller
         Container.Bind<AssetsContext>().FromInstance(_legacyContext);
         Container.Bind<RootScriptableValue<Vector3>>().FromInstance(_vector3Value);
         Container.Bind<RootScriptableValue<IAttackable>>().FromInstance(_atackable);
-
+        Container.Bind<RootScriptableValue<ISelectable>>().FromInstance(_selectable);
 
         Container.Bind<CommandCreatorBase<IProduceUnitCommand>>()
         .To<ProduceUnitCommandCommandCreator>().AsTransient();

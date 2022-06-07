@@ -4,6 +4,6 @@ public class PatrolUnitCommandExecuter : CommandExecutorBase<IPatrolCommand>
 {
     public override void ExecuteSpecificCommand(IPatrolCommand command)
     {
-        Debug.Log($"Patrolling {gameObject.name}");
+       command.Patrol(command.FromPosition,command.ToPosition);
     }
 }

@@ -2,7 +2,7 @@ using Abstractions;
 using UnityEngine;
 using Zenject;
 
-[CreateAssetMenu(fileName = "UntitledInstaller", menuName = "Installers/UntitledInstaller")]
+[CreateAssetMenu(fileName = "AssetInstaller", menuName = "Installers/AssetInstaller")]
 public class AssetInstaller : ScriptableObjectInstaller<AssetInstaller>
 {
     [SerializeField] private AssetsContext _legacyContext;

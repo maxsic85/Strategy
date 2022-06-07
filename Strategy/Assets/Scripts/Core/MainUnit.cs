@@ -3,11 +3,13 @@ using UnityEngine;
 
 namespace Core
 {
-    public class MainUnit : MonoBehaviour ,ISelectable
+    public class MainUnit : MonoBehaviour ,ISelectable,IAttackable
     {
         public float Health => _health;
         public float MaxHealth => _maxHealth;
         public Sprite Icon => _icon;
+
+        public Transform Target => gameObject.transform;
 
         [SerializeField] private Transform _unitsParent;
 

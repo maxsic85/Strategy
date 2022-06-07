@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d9349dd480c07458a1f0bbe364b88c, type: 3}
   m_Name: Vector3Value
   m_EditorClassIdentifier: 
+  gameObject: {fileID: 1925493210068636807, guid: a9de423ac76e6de408d619a161297279, type: 3}

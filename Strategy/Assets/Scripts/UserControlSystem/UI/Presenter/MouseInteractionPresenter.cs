@@ -32,9 +32,9 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
             return;
         }
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
+        var hits = Physics.RaycastAll(ray);
         if (Input.GetMouseButtonUp(0))
         {
-            var hits = Physics.RaycastAll(ray);
             if (hits.Length == 0)
             {
                 return;
@@ -50,8 +50,17 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
         {
             if (_groundPlane.Raycast(ray, out var enter))
             {
-                _groundClicksRMB.SetValue(ray.origin + ray.direction* enter);
+                _groundClicksRMB.SetValue(ray.origin + ray.direction * enter);
             }
+            foreach (var item in hits)
+            {
+                if (item.collider.GetComponentInParent<IAttackable>() != null)
+                {
+                    _attackable.SetValue(item.collider.GetComponentInParent<IAttackable>());
+
+                }
+            }
+
         }
     }
 

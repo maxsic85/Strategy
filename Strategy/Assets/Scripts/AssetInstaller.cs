@@ -13,5 +13,8 @@ public class AssetInstaller : ScriptableObjectInstaller<AssetInstaller>
     public override void InstallBindings()
     {
         Container.BindInstances(_legacyContext, _vector3Value, _atackable, _selectable);
+
+        Container.Bind<IAwaitable<IAttackable>>().FromInstance(_atackable);
+        Container.Bind<IAwaitable<Vector3>>().FromInstance(_vector3Value);
     }
 }

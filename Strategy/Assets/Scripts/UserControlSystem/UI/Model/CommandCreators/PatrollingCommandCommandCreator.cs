@@ -4,28 +4,12 @@ using UnityEngine;
 using UserControlSystem;
 using Zenject;
 
-public class PatrollingCommandCommandCreator : CommandCreatorBase<IPatrolCommand>
-
+public class PatrollingCommandCommandCreator : CancellableCommandCreatorBase<IPatrolCommand, Vector3>
 {
-    [Inject] private AssetsContext _context;
-    [Inject] private RootScriptableValue<ISelectable> _selectedObject;
-
-    private Action<IPatrolCommand> _creationCallback;
-
-    [Inject]
-    private void Init(RootScriptableValue<Vector3> groundClicks)
+    [Inject] private SelectableValue _selectable;
+    protected override IPatrolCommand createCommand(Vector3 argument)
     {
-        groundClicks.OnNewValue += onNewValue;
-    }
+      return new PatrolCommand(_selectable.CurrentValue.CurrenntPosition, argument);
 
-    private void onNewValue(Vector3 groundClick)
-    {
-        _creationCallback?.Invoke(_context.Inject(new PatrolCommand(_selectedObject.CurrentValue.CurrenntPosition,groundClick)));
-        _creationCallback = null;
-    }
-
-    protected override void classSpecificCommandCreation(Action<IPatrolCommand> creationCallback)
-    {
-        _creationCallback = creationCallback;
     }
 }

@@ -16,4 +16,3 @@ public abstract class CommandCreatorBase<T> where T : ICommand
     creationCallback);
     public virtual void ProcessCancel() { }
 }
-

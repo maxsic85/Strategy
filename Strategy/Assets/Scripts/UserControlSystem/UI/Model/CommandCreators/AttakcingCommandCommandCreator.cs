@@ -13,9 +13,14 @@ public class AttakcingCommandCommandCreator : CommandCreatorBase<IAttackCommand>
 
     protected override async void classSpecificCommandCreation(Action<IAttackCommand> creationCallback)
     {
-        creationCallback?.Invoke(_context.Inject(new AttackCommand(await _atackValue)));
+        _ctSource = new CancellationTokenSource();
+        try
+        {
+            var attackable = await _atackValue.WithCancellation(_ctSource.Token);
+            creationCallback?.Invoke(_context.Inject(new AttackCommand(attackable)));
+        }
+        catch { }
     }
-
     public override void ProcessCancel()
     {
         base.ProcessCancel();
@@ -26,5 +31,6 @@ public class AttakcingCommandCommandCreator : CommandCreatorBase<IAttackCommand>
             _ctSource = null;
         }
     }
+
 
 }

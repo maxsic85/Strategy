@@ -1,4 +1,6 @@
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public abstract class RootScriptableValue<T> : ScriptableObject, IAwaitable<T>
@@ -11,6 +13,8 @@ public abstract class RootScriptableValue<T> : ScriptableObject, IAwaitable<T>
         private TAwaited _result;
         private Action _continuation;
         private bool _isCompleted;
+
+
         public NewValueNotifier(RootScriptableValue<TAwaited> scriptableObjectValueBase)
         {
             _scriptableObjectValueBase = scriptableObjectValueBase;
@@ -51,5 +55,5 @@ public abstract class RootScriptableValue<T> : ScriptableObject, IAwaitable<T>
     {
         return new NewValueNotifier<T>(this);
     }
-
+   
 }

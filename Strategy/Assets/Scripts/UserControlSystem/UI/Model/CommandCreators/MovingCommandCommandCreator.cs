@@ -2,30 +2,10 @@ using System;
 using Zenject;
 using UnityEngine;
 
-public class MovingCommandCommandCreator : CommandCreatorBase<IMoveCommand>
+public class MovingCommandCommandCreator : CancellableCommandCreatorBase<IMoveCommand, Vector3>
 {
-    [Inject] private AssetsContext _context;
-    private Action<IMoveCommand> _creationCallback;
-
-    [Inject]
-    private void Init(RootScriptableValue<Vector3> groundClicks)
+    protected override IMoveCommand createCommand(Vector3 argument)
     {
-        groundClicks.OnNewValue += onNewValue;
+       return new MoveCommand(argument);
     }
-
-    private void onNewValue(Vector3 groundClick)
-    {
-        _creationCallback?.Invoke(_context.Inject(new MoveCommand(groundClick)));
-        _creationCallback = null;
-    }
-    protected override void classSpecificCommandCreation(Action<IMoveCommand> creationCallback)
-    {
-        _creationCallback = creationCallback;
-    }
-    public override void ProcessCancel()
-    {
-        base.ProcessCancel();
-        _creationCallback = null;
-    }
-
 }

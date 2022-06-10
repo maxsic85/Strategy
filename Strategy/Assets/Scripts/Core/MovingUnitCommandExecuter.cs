@@ -7,7 +7,7 @@ public class MovingUnitCommandExecuter : CommandExecutorBase<IMoveCommand>
     [SerializeField] private Animator _animator;
 
 
-    public override void ExecuteSpecificCommand(IMoveCommand command)
+    public override async void ExecuteSpecificCommand(IMoveCommand command)
     {
         Debug.Log($"{name} is moving to {command.Target}!");
         GetComponent<NavMeshAgent>().destination = command.Target;

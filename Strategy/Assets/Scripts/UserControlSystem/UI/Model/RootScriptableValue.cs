@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class RootScriptableValue<T> : ScriptableObject, IAwaitable<T>
 {
-   
+
 
     public class NewValueNotifier<TAwaited> : IAwaiter<TAwaited>
     {
@@ -14,7 +14,9 @@ public abstract class RootScriptableValue<T> : ScriptableObject, IAwaitable<T>
         private Action _continuation;
         private bool _isCompleted;
 
-
+        #region IAweiter
+        public TAwaited GetResult() => _result;
+        #endregion
         public NewValueNotifier(RootScriptableValue<TAwaited> scriptableObjectValueBase)
         {
             _scriptableObjectValueBase = scriptableObjectValueBase;
@@ -41,7 +43,6 @@ public abstract class RootScriptableValue<T> : ScriptableObject, IAwaitable<T>
             }
         }
         public bool IsCompleted => _isCompleted;
-        public TAwaited GetResult() => _result;
     }
 
     public T CurrentValue { get; private set; }
@@ -55,5 +56,5 @@ public abstract class RootScriptableValue<T> : ScriptableObject, IAwaitable<T>
     {
         return new NewValueNotifier<T>(this);
     }
-   
+
 }

@@ -7,6 +7,10 @@ public class UnitMovementStop : MonoBehaviour, IAwaitable<AsyncExtensions.Void>
 {
     public class StopAwaiter : IAwaiter<AsyncExtensions.Void>
     {
+        #region IAweiter
+        public AsyncExtensions.Void GetResult() => new AsyncExtensions.Void();
+        #endregion
+
         private readonly UnitMovementStop _unitMovementStop;
         private Action _continuation;
         private bool _isCompleted;
@@ -33,7 +37,6 @@ public class UnitMovementStop : MonoBehaviour, IAwaitable<AsyncExtensions.Void>
             }
         }
         public bool IsCompleted => _isCompleted;
-        public AsyncExtensions.Void GetResult() => new AsyncExtensions.Void();
     }
     public event Action OnStop;
     [SerializeField] private NavMeshAgent _agent;

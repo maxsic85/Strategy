@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2137116290004538113}
   - component: {fileID: 5003178871959465631}
   - component: {fileID: 8493189021193582851}
+  - component: {fileID: 8554475137116081314}
   m_Layer: 0
   m_Name: Corals
   m_TagString: Untagged
@@ -117,6 +118,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.8639174, y: 1.9418328, z: 2.6791468}
   m_Center: {x: 0.14573526, y: 0.7682396, z: -0.052353382}
+--- !u!208 &8554475137116081314
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137116289986108289}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &2137116289986108291
 GameObject:
   m_ObjectHideFlags: 0

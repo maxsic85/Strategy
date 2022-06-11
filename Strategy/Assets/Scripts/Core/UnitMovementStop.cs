@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 public class UnitMovementStop : MonoBehaviour, IAwaitable<AsyncExtensions.Void>
 {
-    public class StopAwaiter : IAwaiter<AsyncExtensions.Void>
+    public class StopAwaiter : AwaiterBase<AsyncExtensions.Void>
     {
+
         #region IAweiter
-        public AsyncExtensions.Void GetResult() => new AsyncExtensions.Void();
         #endregion
 
         private readonly UnitMovementStop _unitMovementStop;
@@ -25,7 +25,7 @@ public class UnitMovementStop : MonoBehaviour, IAwaitable<AsyncExtensions.Void>
             _isCompleted = true;
             _continuation?.Invoke();
         }
-        public void OnCompleted(Action continuation)
+        public override void OnCompleted(Action continuation)
         {
             if (_isCompleted)
             {
@@ -36,7 +36,7 @@ public class UnitMovementStop : MonoBehaviour, IAwaitable<AsyncExtensions.Void>
                 _continuation = continuation;
             }
         }
-        public bool IsCompleted => _isCompleted;
+        public override bool IsCompleted => _isCompleted;
     }
     public event Action OnStop;
     [SerializeField] private NavMeshAgent _agent;

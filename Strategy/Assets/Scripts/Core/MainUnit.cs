@@ -12,8 +12,6 @@ namespace Core
         public Transform Target => gameObject.transform;
         public Vector3 CurrenntPosition => gameObject.transform.position;
 
-        [SerializeField] private Transform _unitsParent;
-
         [SerializeField] private float _maxHealth = 100;
         [SerializeField] private Sprite _icon;
 

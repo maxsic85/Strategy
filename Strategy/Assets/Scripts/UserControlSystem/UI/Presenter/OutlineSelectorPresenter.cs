@@ -10,10 +10,10 @@ public class OutlineSelectorPresenter : MonoBehaviour
     private ISelectable _currentSelectable;
     private void Start()
     {
-        _selectable.OnNewValue += onSelected;
-        onSelected(_selectable.CurrentValue);
+        _selectable.OnNewValue += OnSelected;
+        OnSelected(_selectable.CurrentValue);
     }
-    private void onSelected(ISelectable selectable)
+    private void OnSelected(ISelectable selectable)
     {
         if (_currentSelectable == selectable)
         {

@@ -9,18 +9,18 @@ CommandCreatorBase<TCommand> where TCommand : ICommand
     [Inject] private IAwaitable<TArgument> _awaitableArgument;
     private CancellationTokenSource _ctSource;
     protected override sealed async void
-    classSpecificCommandCreation(Action<TCommand> creationCallback)
+    ClassSpecificCommandCreation(Action<TCommand> creationCallback)
     {
         _ctSource = new CancellationTokenSource();
         try
         {
             var argument = await _awaitableArgument.WithCancellation(_ctSource.Token);
             creationCallback?
-            .Invoke(_context.Inject(createCommand(argument)));
+            .Invoke(_context.Inject(CreateCommand(argument)));
         }
         catch { }
     }
-    protected abstract TCommand createCommand(TArgument argument);
+    protected abstract TCommand CreateCommand(TArgument argument);
     public override void ProcessCancel()
     {
         base.ProcessCancel();

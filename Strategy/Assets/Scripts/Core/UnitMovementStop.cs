@@ -17,11 +17,11 @@ public class UnitMovementStop : MonoBehaviour, IAwaitable<AsyncExtensions.Void>
         public StopAwaiter(UnitMovementStop unitMovementStop)
         {
             _unitMovementStop = unitMovementStop;
-            _unitMovementStop.OnStop += onStop;
+            _unitMovementStop.OnStop += OnStop;
         }
-        public void onStop()
+        public void OnStop()
         {
-            _unitMovementStop.OnStop -= onStop;
+            _unitMovementStop.OnStop -= OnStop;
             _isCompleted = true;
             _continuation?.Invoke();
         }

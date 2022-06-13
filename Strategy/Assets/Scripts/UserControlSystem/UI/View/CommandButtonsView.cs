@@ -31,7 +31,7 @@ public class CommandButtonsView : MonoBehaviour
     public void BlockInteractions(ICommandExecutor ce)
     {
         UnblockAllInteractions();
-        getButtonGameObjectByType(ce.GetType())
+        GetButtonGameObjectByType(ce.GetType())
         .GetComponent<Selectable>().interactable = false;
     }
     public void UnblockAllInteractions() => SetInteractible(true);
@@ -44,19 +44,19 @@ public class CommandButtonsView : MonoBehaviour
         _produceUnitButton.GetComponent<Selectable>().interactable =
         value;
     }
-    public void MakeLayout(IEnumerable<ICommandExecutor> commandExecutors)
+    public void MakeLayout(IReadOnlyList<ICommandExecutor> commandExecutors)
     {
         foreach (var currentExecutor in commandExecutors)
         {
             var buttonGameObject =
-            getButtonGameObjectByType(currentExecutor.GetType());
+            GetButtonGameObjectByType(currentExecutor.GetType());
             buttonGameObject.SetActive(true);
             var button = buttonGameObject.GetComponent<Button>();
             button.onClick.AddListener(() =>
             OnClick?.Invoke(currentExecutor));
         }
     }
-    private GameObject getButtonGameObjectByType(Type executorInstanceType)
+    private GameObject GetButtonGameObjectByType(Type executorInstanceType)
     {
         return _buttonsByExecutorType
         .Where(type =>

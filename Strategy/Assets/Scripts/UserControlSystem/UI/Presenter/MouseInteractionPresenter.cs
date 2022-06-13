@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Abstractions;
+﻿using Abstractions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UserControlSystem;
@@ -7,13 +6,13 @@ using Zenject;
 
 public sealed class MouseInteractionPresenter : MonoBehaviour
 {
+
+    [Inject] private SelectableValue _selectedObject;
+    [Inject] private Vector3Value _groundClicksRMB;
+    [Inject] private AtackValue _attackable;
+
     [SerializeField] private Camera _camera;
-    [SerializeField] private SelectableValue _selectedObject;
     [SerializeField] private EventSystem _eventSystem;
-
-    [SerializeField] private Vector3Value _groundClicksRMB;
-    [SerializeField] private AtackValue _attackable;
-
     [SerializeField] private Transform _groundTransform;
 
     private Plane _groundPlane;
@@ -40,30 +39,12 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
             {
                 return;
             }
-            GetleftClickSelectedObject(hits);
+            MouseInteractionSelect<ISelectable>.GetleftClickSelectedObject(hits, _selectedObject);
         }
         else
         {
             GetGroundClickPosition(ray);
-
-            GetAttacableClickUnit(hits);
-        }
-    }
-
-    private void GetleftClickSelectedObject(RaycastHit[] hits)
-    {
-        var selectable = hits
-        .Select(hit =>
-        hit.collider.GetComponentInParent<ISelectable>())
-        .Where(c => c != null)
-        .FirstOrDefault();
-        _selectedObject.SetValue(selectable);
-    }
-    private void GetAttacableClickUnit(RaycastHit[] hits)
-    {
-        foreach (var item in hits.Where(item => item.collider.GetComponentInParent<IAttackable>() != null))
-        {
-            _attackable.SetValue(item.collider.GetComponentInParent<IAttackable>());
+            MouseInteractionSelect<IAttackable>.GetleftClickSelectedObject(hits, _attackable);
         }
     }
     private void GetGroundClickPosition(Ray ray)

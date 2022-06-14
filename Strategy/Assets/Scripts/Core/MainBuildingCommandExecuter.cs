@@ -1,4 +1,5 @@
 using Abstractions;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Core
@@ -18,10 +19,15 @@ namespace Core
 
         private float _health = 1000;
 
-        public override void ExecuteSpecificCommand(IProduceUnitCommand command)
+        public override async void ExecuteSpecificCommand(IProduceUnitCommand command)
         {
-            Instantiate(command.UnitPrefab, new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity, _unitsParent);
+            await CreateUnitTask(command);
         }
 
+        private async Task CreateUnitTask(IProduceUnitCommand command)
+        {
+            await Task.Delay(2000);
+            Instantiate(command.UnitPrefab, new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity, _unitsParent);
+        }
     }
 }

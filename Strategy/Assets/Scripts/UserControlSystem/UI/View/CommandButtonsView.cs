@@ -25,9 +25,8 @@ public class CommandButtonsView : MonoBehaviour
         _buttonsByExecutorType
         .Add(typeof(CommandExecutorBase<IStopCommand>), _stopButton);
         _buttonsByExecutorType
-        .Add(typeof(CommandExecutorBase<IProduceUnitCommand>), _produceUnitButton);
-
-
+        .Add(typeof(CommandExecutorBase<IProduceUnitCommand>),
+        _produceUnitButton);
     }
     public void BlockInteractions(ICommandExecutor ce)
     {
@@ -42,7 +41,8 @@ public class CommandButtonsView : MonoBehaviour
         _moveButton.GetComponent<Selectable>().interactable = value;
         _patrolButton.GetComponent<Selectable>().interactable = value;
         _stopButton.GetComponent<Selectable>().interactable = value;
-        _produceUnitButton.GetComponent<Selectable>().interactable = value;
+        _produceUnitButton.GetComponent<Selectable>().interactable =
+        value;
     }
     public void MakeLayout(IReadOnlyList<ICommandExecutor> commandExecutors)
     {

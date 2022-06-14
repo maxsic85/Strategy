@@ -5,6 +5,8 @@ using UnityEngine;
 
 public abstract class RootScriptableValue<T> : ScriptableObject, IAwaitable<T>
 {
+
+
     public class NewValueNotifier<TAwaited> : AwaiterBase<TAwaited>
     {
         private readonly RootScriptableValue<TAwaited> _scriptableObjectValueBase;
@@ -18,11 +20,11 @@ public abstract class RootScriptableValue<T> : ScriptableObject, IAwaitable<T>
         public NewValueNotifier(RootScriptableValue<TAwaited> scriptableObjectValueBase)
         {
             _scriptableObjectValueBase = scriptableObjectValueBase;
-            _scriptableObjectValueBase.OnNewValue += OnNewValue;
+            _scriptableObjectValueBase.OnNewValue += onNewValue;
         }
-        private void OnNewValue(TAwaited obj)
+        private void onNewValue(TAwaited obj)
         {
-            _scriptableObjectValueBase.OnNewValue -= OnNewValue;
+            _scriptableObjectValueBase.OnNewValue -= onNewValue;
             _result = obj;
             _isCompleted = true;
             _continuation?.Invoke();

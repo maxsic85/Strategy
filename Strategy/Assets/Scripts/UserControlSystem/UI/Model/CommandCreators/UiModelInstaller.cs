@@ -7,6 +7,8 @@ public class UiModelInstaller : MonoInstaller
     [SerializeField] private RootScriptableValue<Vector3> _vector3Value;
     [SerializeField] private RootScriptableValue<IAttackable> _atackable;
     [SerializeField] private RootScriptableValue<ISelectable> _selectable;
+    [SerializeField] private RootScriptableValue<IMovable> _movable;
+
 
 
 
@@ -16,6 +18,8 @@ public class UiModelInstaller : MonoInstaller
         Container.Bind<RootScriptableValue<Vector3>>().FromInstance(_vector3Value);
         Container.Bind<RootScriptableValue<IAttackable>>().FromInstance(_atackable);
         Container.Bind<RootScriptableValue<ISelectable>>().FromInstance(_selectable);
+        Container.Bind<RootScriptableValue<IMovable>>().FromInstance(_movable);
+
 
         Container.Bind<CommandCreatorBase<IProduceUnitCommand>>()
         .To<ProduceUnitCommandCommandCreator>().AsTransient();

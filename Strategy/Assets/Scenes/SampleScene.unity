@@ -731,10 +731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 963194227}
-  _selectedObject: {fileID: 11400000, guid: 67efa5143a3987042ba88bf57aa29c68, type: 2}
   _eventSystem: {fileID: 975065888}
-  _groundClicksRMB: {fileID: 11400000, guid: 3b81bd27c9d30c0449038d8577d212a2, type: 2}
-  _attackable: {fileID: 11400000, guid: 7f5971031a9ba1842b85e2638a930a9c, type: 2}
   _groundTransform: {fileID: 1283717504}
 --- !u!95 &497098979
 Animator:
@@ -1714,6 +1711,7 @@ MonoBehaviour:
   _vector3Value: {fileID: 11400000, guid: 3b81bd27c9d30c0449038d8577d212a2, type: 2}
   _atackable: {fileID: 11400000, guid: 7f5971031a9ba1842b85e2638a930a9c, type: 2}
   _selectable: {fileID: 11400000, guid: 67efa5143a3987042ba88bf57aa29c68, type: 2}
+  _movable: {fileID: 11400000, guid: 71740b57cfd743e44a41db466e9eb5a1, type: 2}
 --- !u!1001 &998716630
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using Zenject;
 using System.Linq;
 using UnityEngine.AI;
 using System.Collections.Generic;
+using System;
 
 public sealed class MouseInteractionPresenter : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
     [Inject] private SelectableValue _selectedObject;
     [Inject] private Vector3Value _groundClicksRMB;
     [Inject] private AtackValue _attackable;
+    [Inject] private CommandButtonsModel _buttonModel;
+
+    public Action<ICommandExecutor> OnClick;
+    CommandExecutorBase<IMoveCommand> _moveExecuter;
 
 
     [SerializeField] private Camera _camera;
@@ -24,7 +29,10 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
 
     private void Start()
     {
+        OnClick += _buttonModel.OnCommandButtonClicked;
+        _moveExecuter = FindObjectOfType<CommandExecutorBase<IMoveCommand>>();
         _groundPlane = new Plane(_groundTransform.up, 0);
+      
     }
     private void Update()
     {
@@ -45,7 +53,10 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
                 return;
 
             }
+           
             MouseInteractionSelect<ISelectable>.GetleftClickSelectedObject(hits, _selectedObject);
+            OnClick -= _buttonModel.OnCommandButtonClicked;
+
         }
         else
         {
@@ -69,6 +80,7 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
         var selectableWithMinDistance = SelectableByDistance.OrderBy(kvp => kvp.Value).First();
         _selectedObject.SetValue(selectableWithMinDistance.Key);
         SelectableByDistance.Clear();
+        OnClick += _buttonModel.OnCommandButtonClicked;
         return;
     }
 
@@ -76,12 +88,27 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
     {
         if (_groundPlane.Raycast(ray, out var enter))
         {
-            _groundClicksRMB.SetValue(ray.origin + ray.direction * enter);
             if (_selectedObject.CurrentValue == null)
             {
                 TryGetNearlyMovingSelectable();
+             
+                _groundClicksRMB.SetValue(ray.origin + ray.direction * enter);
 
+                return;
             }
+            else if (_selectedObject is SelectableValue)
+            {
+            
+
+
+              
+                OnClick?.Invoke(_moveExecuter);
+              
+               
+            }
+            _groundClicksRMB.SetValue(ray.origin + ray.direction * enter);
+        
+           
         }
     }
 }

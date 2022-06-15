@@ -6,9 +6,11 @@ using Zenject;
 using System.Linq;
 using UnityEngine.AI;
 using System.Collections.Generic;
+using System;
 
 public sealed class MouseInteractionPresenter : MonoBehaviour
 {
+    public event Action<ICommandExecutor> OnClicMouseTwoWithoutButton;
 
     [Inject] private SelectableValue _selectedObject;
     [Inject] private Vector3Value _groundClicksRMB;
@@ -18,12 +20,14 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private EventSystem _eventSystem;
     [SerializeField] private Transform _groundTransform;
+    [Inject] private CommandButtonsModel _commandButtons;
 
     private Plane _groundPlane;
     private Dictionary<ISelectable, float> SelectableByDistance = new Dictionary<ISelectable, float>();
 
     private void Start()
     {
+        OnClicMouseTwoWithoutButton += _commandButtons.OnCommandButtonClicked;
         _groundPlane = new Plane(_groundTransform.up, 0);
     }
     private void Update()
@@ -56,6 +60,7 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
 
     private void TryGetNearlyMovingSelectable()
     {
+       
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
         var hits = Physics.SphereCastAll(ray, 10);
 
@@ -79,9 +84,17 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
             _groundClicksRMB.SetValue(ray.origin + ray.direction * enter);
             if (_selectedObject.CurrentValue == null)
             {
-                TryGetNearlyMovingSelectable();
-
+                OnClicMouseTwoWithoutButton -= _commandButtons.OnCommandButtonClicked;
+                TryGetNearlyMovingSelectable();           
             }
+            else if (_selectedObject is SelectableValue)
+            {
+                OnClicMouseTwoWithoutButton += _commandButtons.OnCommandButtonClicked;
+                var executer = (_selectedObject.CurrentValue as Component).GetComponentsInParent<ICommandExecutor>();
+                var mover = executer.Where(c => c.GetType().BaseType.IsAssignableFrom(typeof(CommandExecutorBase<IMoveCommand>))).FirstOrDefault();
+                OnClicMouseTwoWithoutButton?.Invoke(mover);     
+            }
+          
         }
     }
 }

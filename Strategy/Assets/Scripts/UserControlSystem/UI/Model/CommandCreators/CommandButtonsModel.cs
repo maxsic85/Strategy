@@ -4,6 +4,9 @@ using Zenject;
 public class CommandButtonsModel
 {
     public event Action<ICommandExecutor> OnCommandAccepted;
+  
+
+
     public event Action OnCommandSent;
     public event Action OnCommandCancel;
     [Inject] private CommandCreatorBase<IProduceUnitCommand> _unitProducer;

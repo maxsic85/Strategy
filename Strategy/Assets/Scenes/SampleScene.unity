@@ -675,6 +675,49 @@ PrefabInstance:
       objectReference: {fileID: 1107898310}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88648eb313304754aa32319927a53e8a, type: 3}
+--- !u!1 &223232982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 223232984}
+  - component: {fileID: 223232983}
+  m_Layer: 0
+  m_Name: System
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &223232983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223232982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad8db8c1df394354e9e72c0357eaa1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &223232984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223232982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1486.3252, y: 1354.2242, z: -77.996346}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &255904194 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4223103202142604724, guid: 11df68f47071b3640a8c650ea0df8913, type: 3}
@@ -3155,6 +3198,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 980720404}
+  - {fileID: 223232983}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:

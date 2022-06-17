@@ -13,4 +13,3 @@ public class TimeModel : ITimeModel, ITickable
     }
 }
 
-using Zenject;

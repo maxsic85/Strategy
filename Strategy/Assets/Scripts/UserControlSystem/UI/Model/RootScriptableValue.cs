@@ -10,39 +10,19 @@ public abstract class RootScriptableValue<T> : ScriptableObject, IAwaitable<T>
     public class NewValueNotifier<TAwaited> : AwaiterBase<TAwaited>
     {
         private readonly RootScriptableValue<TAwaited> _scriptableObjectValueBase;
-        private TAwaited _result;
-        private Action _continuation;
-        private bool _isCompleted;
 
         #region IAweiter
-        public override TAwaited GetResult() => _result;
-        #endregion
         public NewValueNotifier(RootScriptableValue<TAwaited> scriptableObjectValueBase)
         {
             _scriptableObjectValueBase = scriptableObjectValueBase;
-            _scriptableObjectValueBase.OnNewValue += onNewValue;
+            _scriptableObjectValueBase.OnNewValue += OnNewValue;
         }
-        private void onNewValue(TAwaited obj)
+        private void OnNewValue(TAwaited obj)
         {
-            _scriptableObjectValueBase.OnNewValue -= onNewValue;
-            _result = obj;
-            _isCompleted = true;
-            _continuation?.Invoke();
+            _scriptableObjectValueBase.OnNewValue -= OnNewValue;
+            OnWaitFinish(obj);
         }
-
-
-        public override void OnCompleted(Action continuation)
-        {
-            if (_isCompleted)
-            {
-                continuation?.Invoke();
-            }
-            else
-            {
-                _continuation = continuation;
-            }
-        }
-        public bool IsCompleted => _isCompleted;
+        #endregion
     }
 
     public T CurrentValue { get; private set; }

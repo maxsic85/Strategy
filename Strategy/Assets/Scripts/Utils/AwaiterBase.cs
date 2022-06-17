@@ -2,14 +2,31 @@
 
 public abstract class AwaiterBase<T> : IAwaiter<T>
 {
-    public T CurrentValue { get; private set; }
+    private Action _continuation;
+    private bool _isCompleted;
+    public T Result;
 
-    public virtual bool IsCompleted  {get;set;}
+    public bool IsCompleted => _isCompleted;
 
-    public virtual T GetResult() => CurrentValue;
+    public T GetResult() => Result;
 
-    public virtual void OnCompleted(Action continuation)
+    public void OnCompleted(Action continuation)
     {
-       
+        if (IsCompleted)
+        {
+            continuation?.Invoke();
+        }
+        else
+        {
+            _continuation = continuation;
+        }
     }
+
+    protected void OnWaitFinish(T result)
+    {
+        Result = result;
+        _isCompleted = true;
+        _continuation?.Invoke();
+    }
+
 }

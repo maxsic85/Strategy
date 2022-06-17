@@ -7,13 +7,8 @@ public class UnitMovementStop : MonoBehaviour, IAwaitable<AsyncExtensions.Void>
 {
     public class StopAwaiter : AwaiterBase<AsyncExtensions.Void>
     {
-
         #region IAweiter
-        #endregion
-
         private readonly UnitMovementStop _unitMovementStop;
-        private Action _continuation;
-        private bool _isCompleted;
         public StopAwaiter(UnitMovementStop unitMovementStop)
         {
             _unitMovementStop = unitMovementStop;
@@ -22,21 +17,10 @@ public class UnitMovementStop : MonoBehaviour, IAwaitable<AsyncExtensions.Void>
         public void OnStop()
         {
             _unitMovementStop.OnStop -= OnStop;
-            _isCompleted = true;
-            _continuation?.Invoke();
+            OnWaitFinish(new AsyncExtensions.Void());
         }
-        public override void OnCompleted(Action continuation)
-        {
-            if (_isCompleted)
-            {
-                continuation?.Invoke();
-            }
-            else
-            {
-                _continuation = continuation;
-            }
-        }
-        public override bool IsCompleted => _isCompleted;
+        #endregion
+
     }
     public event Action OnStop;
     [SerializeField] private NavMeshAgent _agent;

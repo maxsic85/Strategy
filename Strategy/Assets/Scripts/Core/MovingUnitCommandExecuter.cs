@@ -27,7 +27,7 @@ _stopCommandExecutor
             GetComponent<NavMeshAgent>().isStopped = true;
             GetComponent<NavMeshAgent>().ResetPath();
         }
-        _stopCommandExecutor.CancellationTokenSource = null;
         _animator.SetTrigger("Idle");
+        _stopCommandExecutor.CancellationTokenSource = null;
     }
 }

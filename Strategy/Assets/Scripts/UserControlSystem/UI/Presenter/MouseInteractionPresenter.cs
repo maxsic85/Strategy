@@ -29,6 +29,8 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
     [Inject]
     private void Init()
     {
+        _groundPlane = new Plane(_groundTransform.up, 0);
+
         var nonBlockedByUiFramesStream = Observable.EveryUpdate()
     .Where(_ => !_eventSystem.IsPointerOverGameObject());
 

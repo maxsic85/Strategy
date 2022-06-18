@@ -17,10 +17,10 @@ public class MovingUnitCommandExecuter : CommandExecutorBase<IMoveCommand>
             await _stop
             .WithCancellation
             (
-_stopCommandExecutor
-.CancellationTokenSource
-.Token
-);
+                _stopCommandExecutor
+                .CancellationTokenSource
+                .Token
+                );
         }
         catch
         {

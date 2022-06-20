@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using UniRx;
 
 namespace UserControlSystem
 {
@@ -21,7 +22,7 @@ namespace UserControlSystem
             _selectedValues.Subscribe(ONSelected);
         }
 
-        private void ONSelected(ISelectable selected)
+        private  void ONSelected(ISelectable selected)
         {
             _selectedImage.enabled = selected != null;
             _healthSlider.gameObject.SetActive(selected != null);

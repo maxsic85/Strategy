@@ -1,4 +1,5 @@
 using Abstractions;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -9,16 +10,17 @@ public class AssetInstaller : ScriptableObjectInstaller<AssetInstaller>
     [SerializeField] private RootScriptableValue<Vector3> _vector3Value;
     [SerializeField] private RootScriptableValue<IAttackable> _atackable;
     [SerializeField] private RootScriptableValue<ISelectable> _selectable;
-    [SerializeField] private RootScriptableValue<IMovable> _movable;
-
+ //   [SerializeField] private StatelessScriptableObjectValueBase<IMovable> _movable;
+    [SerializeField] private StatefulScriptableObjectValueBase<ISelectable> _selectables;
 
     public override void InstallBindings()
     {
-        Container.BindInstances(_legacyContext, _vector3Value, _atackable, _selectable, _movable);
+        Container.BindInstances(_legacyContext, _vector3Value, _atackable, _selectable /*_movable*/);
 
         Container.Bind<IAwaitable<IAttackable>>().FromInstance(_atackable);
         Container.Bind<IAwaitable<Vector3>>().FromInstance(_vector3Value);
-        Container.Bind<IAwaitable<IMovable>>().FromInstance(_movable);
+        //Container.Bind<IAwaitable<IMovable>>().FromInstance(_movable);
+        Container.Bind<IObservable<ISelectable>>().FromInstance(_selectables);
 
     }
 }

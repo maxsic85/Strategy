@@ -16,4 +16,4 @@ MonoBehaviour:
   _vector3Value: {fileID: 11400000, guid: 3b81bd27c9d30c0449038d8577d212a2, type: 2}
   _atackable: {fileID: 11400000, guid: 7f5971031a9ba1842b85e2638a930a9c, type: 2}
   _selectable: {fileID: 11400000, guid: 67efa5143a3987042ba88bf57aa29c68, type: 2}
-  _movable: {fileID: 11400000, guid: 71740b57cfd743e44a41db466e9eb5a1, type: 2}
+  _selectables: {fileID: 11400000, guid: 67efa5143a3987042ba88bf57aa29c68, type: 2}

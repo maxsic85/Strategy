@@ -14,18 +14,18 @@ public class BottomCenterPresenter : MonoBehaviour
     {
         model.UnitProducers.Subscribe(unitProducer =>
         {
-        _productionQueueAddCt?.Dispose();
-        _productionQueueRemoveCt?.Dispose();
-        _productionQueueReplaceCt?.Dispose();
-        _cancelButtonCts?.Dispose();
-        view.Clear();
-        _uiHolder.SetActive(unitProducer != null);
-        if (unitProducer != null)
-        {
-            _productionQueueAddCt = unitProducer.Queue
-            .ObserveAdd()
-            .Subscribe(addEvent =>
-            view.SetTask(addEvent.Value, addEvent.Index));
+            _productionQueueAddCt?.Dispose();
+            _productionQueueRemoveCt?.Dispose();
+            _productionQueueReplaceCt?.Dispose();
+            _cancelButtonCts?.Dispose();
+            view.Clear();
+            _uiHolder.SetActive(unitProducer != null);
+            if (unitProducer != null)
+            {
+                _productionQueueAddCt = unitProducer.Queue
+                .ObserveAdd()
+                .Subscribe(addEvent =>
+                view.SetTask(addEvent.Value, addEvent.Index));
                 _productionQueueRemoveCt = unitProducer.Queue
 .ObserveRemove()
 .Subscribe(removeEvent => view.SetTask(null,

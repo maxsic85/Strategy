@@ -2,12 +2,10 @@ using UnityEngine;
 
 namespace Abstractions
 {
-    public interface ISelectable
+    public interface ISelectable : IIconHolder
     {
         float Health { get; }
         float MaxHealth { get; }
-        Sprite Icon { get; }
-
-        public Vector3 CurrenntPosition { get;  }
+        public Vector3 CurrenntPosition { get; }
     }
 }

@@ -25,7 +25,7 @@ public class BottomCenterView : MonoBehaviour
             _cancelButtonClicks.OnNext(index));
         }
     }
-    private void Clear()
+    pu void Clear()
     {
         for (int i = 0; i < _images.Length; i++)
         {

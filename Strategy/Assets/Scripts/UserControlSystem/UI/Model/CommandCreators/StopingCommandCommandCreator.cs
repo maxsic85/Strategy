@@ -8,6 +8,6 @@ public class StopingCommandCommandCreator : CommandCreatorBase<IStopCommand>
     [Inject] private SelectableValue _selectable;
     protected override void ClassSpecificCommandCreation(Action<IStopCommand> creationCallback)
     {
-        creationCallback?.Invoke(_context.Inject(new StopCommand(_selectable.CurrentValue.CurrenntPosition)));
+        creationCallback?.Invoke(_context.Inject(new StopCommand()));
     }
 }

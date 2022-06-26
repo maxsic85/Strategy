@@ -1,10 +1,13 @@
 using Abstractions;
+using System.Threading.Tasks;
 using UniRx;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 public class ProduceUnitCommandExecutor :
 CommandExecutorBase<IProduceUnitCommand>, IUnitProducer
 {
+    [Inject] private DiContainer _diContainer;
     public IReadOnlyReactiveCollection<IUnitProductionTask> Queue =>
     _queue;
     [SerializeField] private Transform _unitsParent;
@@ -22,9 +25,8 @@ CommandExecutorBase<IProduceUnitCommand>, IUnitProducer
         if (innerTask.TimeLeft <= 0)
         {
             RemoveTaskAtIndex(0);
-            Instantiate(innerTask.UnitPrefab, new
-            Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)),
-            Quaternion.identity, _unitsParent);
+          _diContainer.InstantiatePrefab(innerTask.UnitPrefab, new Vector3(Random.Range(-10, 10), 0,
+Random.Range(-10, 10)), Quaternion.identity, _unitsParent);
         }
     }
     public void Cancel(int index) => RemoveTaskAtIndex(index);
@@ -36,7 +38,7 @@ CommandExecutorBase<IProduceUnitCommand>, IUnitProducer
         }
         _queue.RemoveAt(_queue.Count - 1);
     }
-    public override void ExecuteSpecificCommand(IProduceUnitCommand
+    public override async Task ExecuteSpecificCommand(IProduceUnitCommand
     command)
     {
         _queue.Add(new UnitProductionTask(command.ProductionTime,

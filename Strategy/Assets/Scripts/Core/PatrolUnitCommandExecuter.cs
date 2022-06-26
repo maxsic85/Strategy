@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿
+using System.Threading.Tasks;
 
 public class PatrolUnitCommandExecuter : CommandExecutorBase<IPatrolCommand>
 {
-    public override void ExecuteSpecificCommand(IPatrolCommand command)
+    public override async Task ExecuteSpecificCommand(IPatrolCommand command)
     {
        command.Patrol(command.FromPosition,command.ToPosition);
     }

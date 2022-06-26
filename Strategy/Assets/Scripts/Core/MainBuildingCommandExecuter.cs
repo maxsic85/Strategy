@@ -19,7 +19,7 @@ namespace Core
 
         private float _health = 1000;
 
-        public override async void ExecuteSpecificCommand(IProduceUnitCommand command)
+        public override async Task ExecuteSpecificCommand(IProduceUnitCommand command)
         {
             await CreateUnitTask(command);
         }

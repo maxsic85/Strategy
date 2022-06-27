@@ -16,6 +16,8 @@ public class CommandButtonsModel
     [Inject] private CommandCreatorBase<IStopCommand> _stopper;
     [Inject] private CommandCreatorBase<IMoveCommand> _mover;
     [Inject] private CommandCreatorBase<IPatrolCommand> _patroller;
+    [Inject] private CommandCreatorBase<ISetRallyPointCommand> _setRally;
+
     private bool _commandIsPending;
     public void OnCommandButtonClicked(ICommandExecutor commandExecutor,
    ICommandsQueue commandsQueue)
@@ -27,17 +29,20 @@ public class CommandButtonsModel
         _commandIsPending = true;
         OnCommandAccepted?.Invoke(commandExecutor);
         _unitProducer.ProcessCommandExecutor(commandExecutor, command =>
-        executeCommandWrapper(command, commandsQueue));
+        ExecuteCommandWrapper(command, commandsQueue));
         _attacker.ProcessCommandExecutor(commandExecutor, command =>
-        executeCommandWrapper(command, commandsQueue));
+        ExecuteCommandWrapper(command, commandsQueue));
         _stopper.ProcessCommandExecutor(commandExecutor, command =>
-        executeCommandWrapper(command, commandsQueue));
+        ExecuteCommandWrapper(command, commandsQueue));
         _mover.ProcessCommandExecutor(commandExecutor, command =>
-        executeCommandWrapper(command, commandsQueue));
+        ExecuteCommandWrapper(command, commandsQueue));
         _patroller.ProcessCommandExecutor(commandExecutor, command =>
-        executeCommandWrapper(command, commandsQueue));
+        ExecuteCommandWrapper(command, commandsQueue));
+        _setRally.ProcessCommandExecutor(commandExecutor, command =>
+        ExecuteCommandWrapper(command, commandsQueue));
+
     }
-    public void executeCommandWrapper(object command, ICommandsQueue commandsQueue)
+    public void ExecuteCommandWrapper(object command, ICommandsQueue commandsQueue)
     {
         if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
         {

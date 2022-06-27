@@ -1451,6 +1451,7 @@ MonoBehaviour:
   _atackable: {fileID: 11400000, guid: 7f5971031a9ba1842b85e2638a930a9c, type: 2}
   _selectable: {fileID: 11400000, guid: 67efa5143a3987042ba88bf57aa29c68, type: 2}
   _movable: {fileID: 11400000, guid: 71740b57cfd743e44a41db466e9eb5a1, type: 2}
+  _chomperSprite: {fileID: 21300000, guid: 5027d54674b1eea498d0692d16d64114, type: 3}
 --- !u!114 &980720405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1935,9 +1936,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
+  - {fileID: 223232983}
   - {fileID: 980720404}
   - {fileID: 980720405}
-  - {fileID: 223232983}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -2653,11 +2654,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3136074258083637842, guid: f058c07682d5fcd4599615ffc81ee38c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1307.2566
+      value: 1229.0459
       objectReference: {fileID: 0}
     - target: {fileID: 3136074258083637842, guid: f058c07682d5fcd4599615ffc81ee38c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 226.5387
+      value: 236.315
       objectReference: {fileID: 0}
     - target: {fileID: 3136074258083637842, guid: f058c07682d5fcd4599615ffc81ee38c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2689,11 +2690,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3136074258083637842, guid: f058c07682d5fcd4599615ffc81ee38c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -676.22754
+      value: -637.12225
       objectReference: {fileID: 0}
     - target: {fileID: 3136074258083637842, guid: f058c07682d5fcd4599615ffc81ee38c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 135
+      value: 139.88815
       objectReference: {fileID: 0}
     - target: {fileID: 3136074258083637842, guid: f058c07682d5fcd4599615ffc81ee38c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

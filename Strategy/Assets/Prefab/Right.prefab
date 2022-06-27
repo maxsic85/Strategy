@@ -614,6 +614,7 @@ MonoBehaviour:
   _patrolButton: {fileID: 5007424553106592974}
   _stopButton: {fileID: 5007424552839021634}
   _produceUnitButton: {fileID: 5007424552604890807}
+  _setRallyButton: {fileID: 0}
 --- !u!1 &5007424552557229957
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,12 +884,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5007424553621796562}
-  m_Father: {fileID: 5007424554166568308}
+  m_Father: {fileID: 5007424553306511817}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_AnchoredPosition: {x: -240.00015, y: -80.00001}
   m_SizeDelta: {x: 110, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5007424552839021661
@@ -1026,7 +1027,7 @@ RectTransform:
   m_Children:
   - {fileID: 5007424552296991923}
   m_Father: {fileID: 5007424553306511817}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1309,6 +1310,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 5007424552839021633}
   - {fileID: 5007424553106592973}
   m_Father: {fileID: 5007424552437057928}
   m_RootOrder: 2
@@ -2155,8 +2157,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 5007424552839021633}
+  m_Children: []
   m_Father: {fileID: 5007424552437057928}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

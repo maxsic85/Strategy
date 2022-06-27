@@ -43,5 +43,7 @@ Random.Range(-10, 10)), Quaternion.identity, _unitsParent);
     {
         _queue.Add(new UnitProductionTask(command.ProductionTime,
 command.Icon, command.UnitPrefab, command.UnitName));
+     
+
     }
 }

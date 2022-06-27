@@ -389,6 +389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _icon: {fileID: 21300000, guid: d310f6bc07533014d9beda6cdda4901c, type: 3}
+  _pivotPoint: {fileID: 0}
 --- !u!1 &815724130412046742
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: AssetInstaller
   m_EditorClassIdentifier: 
   _legacyContext: {fileID: 11400000, guid: 9bfcf96b9144a5441baa36b8f4761da6, type: 2}
-  _vector3Value: {fileID: 11400000, guid: 3b81bd27c9d30c0449038d8577d212a2, type: 2}
-  _atackable: {fileID: 11400000, guid: 7f5971031a9ba1842b85e2638a930a9c, type: 2}
-  _selectable: {fileID: 11400000, guid: 67efa5143a3987042ba88bf57aa29c68, type: 2}
+  _groundClicksRMB: {fileID: 11400000, guid: 3b81bd27c9d30c0449038d8577d212a2, type: 2}
+  _attackableClicksRMB: {fileID: 11400000, guid: 7f5971031a9ba1842b85e2638a930a9c, type: 2}
   _selectables: {fileID: 11400000, guid: 67efa5143a3987042ba88bf57aa29c68, type: 2}
-  _chomperSprite: {fileID: 21300000, guid: 5027d54674b1eea498d0692d16d64114, type: 3}

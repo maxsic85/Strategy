@@ -2,10 +2,8 @@ using UnityEngine;
 
 namespace Abstractions
 {
-    public interface ISelectable : IIconHolder
+    public interface ISelectable : IHealthHolder, IIconHolder
     {
-        float Health { get; }
-        float MaxHealth { get; }
-        public Vector3 CurrenntPosition { get; }
+        Transform PivotPoint { get; }
     }
 }

@@ -4,12 +4,10 @@ using UnityEngine;
 using UserControlSystem;
 using Zenject;
 
-public class PatrollingCommandCommandCreator : CancellableCommandCreatorBase<IPatrolCommand, Vector3>
+public sealed class PatrolCommandCommandCreator : CancellableCommandCreatorBase<IPatrolCommand, Vector3>
 {
     [Inject] private SelectableValue _selectable;
-    protected override IPatrolCommand CreateCommand(Vector3 argument)
-    {
-      return new PatrolCommand(_selectable.CurrentValue.CurrenntPosition, argument);
 
-    }
+    protected override IPatrolCommand CreateCommand(Vector3 argument)
+        => new PatrolCommand(_selectable.CurrentValue.PivotPoint.position, argument);
 }

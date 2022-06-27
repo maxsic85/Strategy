@@ -12,6 +12,8 @@ namespace Core
 
         public Vector3 CurrenntPosition => gameObject.transform.position;
 
+        public Transform PivotPoint => throw new System.NotImplementedException();
+
         [SerializeField] private Transform _unitsParent;
 
         [SerializeField] private float _maxHealth = 1000;

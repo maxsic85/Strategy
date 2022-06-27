@@ -13,6 +13,7 @@ public class CommandButtonsView : MonoBehaviour
     [SerializeField] private GameObject _patrolButton;
     [SerializeField] private GameObject _stopButton;
     [SerializeField] private GameObject _produceUnitButton;
+    [SerializeField] private GameObject _setRallyButton;
     private Dictionary<Type, GameObject> _buttonsByExecutorType;
     private void Start()
     {
@@ -28,6 +29,8 @@ public class CommandButtonsView : MonoBehaviour
         _buttonsByExecutorType
         .Add(typeof(ICommandExecutor<IProduceUnitCommand>),
         _produceUnitButton);
+        _buttonsByExecutorType
+              .Add(typeof(ICommandExecutor<ISetRallyPointCommand>), _setRallyButton);
     }
     public void BlockInteractions(ICommandExecutor ce)
     {
